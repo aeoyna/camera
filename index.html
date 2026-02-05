@@ -6,60 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Webカメラアプリ</title>
   <link rel="stylesheet" href="styles.css">
-</head>
 
-<body>
-  <div id="camera-root">
-    <video id="video" autoplay playsinline muted></video>
+  <head>
 
-    <div id="top-bar">
-      <div class="left"></div>
-      <div class="center"></div>
-      <div class="right"></div>
+  <body>
+    <div id="camera-root">
+      <video id="video" autoplay playsinline muted></video>
+
+      <div id="top-bar">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+      </div>
+
+      <div id="controls">
+        <!-- Overlays for modes -->
+        <div id="blur-top" class="blur-bar"></div>
+        <div id="blur-bottom" class="blur-bar"></div>
+        <img id="onion-skin" alt="" style="display:none">
+
+        <div id="thumb-wrap">
+          <img id="thumb" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+        </div>
+
+        <div id="mode">
+          <div class="mode-item" data-mode="video">動画</div>
+          <div class="mode-item active" data-mode="photo">写真</div>
+          <div class="mode-item" data-mode="miniature">ミニチュア</div>
+          <div class="mode-item" data-mode="night">ナイト</div>
+          <div class="mode-item" data-mode="stopmotion">こまどり</div>
+        </div>
+
+
+
+        <button id="shutter" aria-label="写真を撮る">
+          <span class="inner"></span>
+        </button>
+
+        <button id="switch-btn" aria-label="カメラ切替" class="mini-btn">
+          <!-- SVG Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M20 10c0-4.418-3.582-8-8-8-2.023 0-3.87.737-5.32 1.964L4 7m16 7v3m-4 3c2.023 0 3.87-.737 5.32-1.964L20 17M4 17c0 4.418 3.582 8 8 8m-8-8v3"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <!-- Zoom Slider -->
+        <div id="zoom-container">
+          <input type="range" id="zoom-slider" min="1" max="10" step="0.1" value="1">
+        </div>
+      </div>
     </div>
 
-    <div id="controls">
-      <!-- Overlays for modes -->
-      <div id="blur-top" class="blur-bar"></div>
-      <div id="blur-bottom" class="blur-bar"></div>
-      <img id="onion-skin" alt="" style="display:none">
-
-      <div id="thumb-wrap">
-        <img id="thumb" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
-      </div>
-
-      <div id="mode">
-        <div class="mode-item" data-mode="video">動画</div>
-        <div class="mode-item active" data-mode="photo">写真</div>
-        <div class="mode-item" data-mode="miniature">ミニチュア</div>
-        <div class="mode-item" data-mode="night">ナイト</div>
-        <div class="mode-item" data-mode="stopmotion">こまどり</div>
-      </div>
-
-
-
-      <button id="shutter" aria-label="写真を撮る">
-        <span class="inner"></span>
-      </button>
-
-      <button id="switch-btn" aria-label="カメラ切替" class="mini-btn">
-        <!-- SVG Icon -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path
-            d="M20 10c0-4.418-3.582-8-8-8-2.023 0-3.87.737-5.32 1.964L4 7m16 7v3m-4 3c2.023 0 3.87-.737 5.32-1.964L20 17M4 17c0 4.418 3.582 8 8 8m-8-8v3"
-            stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-
-      <!-- Zoom Slider -->
-      <div id="zoom-container">
-        <input type="range" id="zoom-slider" min="1" max="10" step="0.1" value="1">
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="app.js" defer></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="app.js" defer></script>
+  </body>
 
 </html>
