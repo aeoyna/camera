@@ -617,15 +617,7 @@ function handlePhotoShutter() {
   captureAndSave();
 }
 
-// Stop Motion Logic
-if (currentMode === 'stopmotion') {
-  onionSkin.src = data;
-  onionSkin.classList.add('active');
-}
-}
 
-// ImageCapture variable
-let imageCapture = null;
 
 // Initialize ImageCapture
 function initImageCapture(stream) {
