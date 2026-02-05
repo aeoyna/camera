@@ -19,9 +19,9 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          description: "Deploy from GitHub Actions"
           local-dir: "./"
           server-dir: "/public_html/"
+          security: loose
           exclude: |
             **/.git*
             **/.git*/**
