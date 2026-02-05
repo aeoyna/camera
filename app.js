@@ -1,3 +1,12 @@
+// HTTPS Check
+if (location.protocol !== 'https:' && location.hostname !== 'localhost' && !location.hostname.includes('127.0.0.1')) {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:#000;color:#fff;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;text-align:center;';
+  overlay.innerHTML = '<h1>⚠️ セキュリティ制限</h1><p>カメラを使用するには<br>HTTPS接続が必要です。</p><br><p>以下を押して移動してください:</p><br><a href="' + location.href.replace('http:', 'https:') + '" style="color:#4da6ff;font-size:18px;background:#333;padding:10px 20px;border-radius:4px;text-decoration:none;">HTTPS版へ移動する</a>';
+  document.body.appendChild(overlay);
+  throw new Error('HTTPS Required');
+}
+
 const shutter = document.getElementById('shutter');
 const thumb = document.getElementById('thumb');
 const modeItems = document.querySelectorAll('.mode-item');
